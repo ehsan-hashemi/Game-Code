@@ -63,6 +63,7 @@ input, select {
   border-radius: 8px;
   width: 200px;
   transition: border-color 0.3s;
+  font-family: "Vazir";
 }
 
 input:focus, select:focus {
@@ -79,6 +80,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
+  font-family: "Vazir";
 }
 
 button:hover {
