@@ -89,6 +89,7 @@ select {
   border-radius: 8px;
   border: 1px solid #ccc;
   margin-top: 10px;
+  width: 80%;
 }
 
 button:hover {

@@ -55,19 +55,37 @@ function chargeCard(code) {
 }
 
 function deductCard(code) {
-  const gameName = prompt("نام بازی را وارد کنید:");
-  if (games[gameName]) {
-    const price = games[gameName];
-    if (cards[code].balance >= price) {
-      cards[code].balance -= price;
-      cards[code].transactions.push(`کسر: -${price}R بابت ${gameName}`);
-      saveData();
-      showPopup("✅ موفق", `کسر ${price}R بابت بازی ${gameName}`);
-    } else {
-      showPopup("❌ خطا", "موجودی کافی نیست!");
-    }
+  const popup = document.getElementById("popup");
+  if (Object.keys(games).length === 0) {
+    showPopup("❌ خطا", "هیچ بازی‌ای ثبت نشده است!");
+    return;
+  }
+
+  let options = "";
+  for (const name in games) {
+    options += `<option value="${name}">${name} - ${games[name]}R</option>`;
+  }
+
+  popup.innerHTML = `
+    <h3>کسر مبلغ بابت بازی</h3>
+    <p>کارت: ${code}</p>
+    <select id="gameSelect">${options}</select>
+    <br><br>
+    <button onclick="applyDeduction('${code}')">تأیید</button>
+  `;
+  popup.classList.remove("hidden");
+}
+
+function applyDeduction(code) {
+  const gameName = document.getElementById("gameSelect").value;
+  const price = games[gameName];
+  if (cards[code].balance >= price) {
+    cards[code].balance -= price;
+    cards[code].transactions.push(`کسر: -${price}R بابت ${gameName}`);
+    saveData();
+    showPopup("✅ موفق", `کسر ${price}R بابت بازی ${gameName}`);
   } else {
-    showPopup("❌ خطا", "بازی یافت نشد!");
+    showPopup("❌ خطا", "موجودی کافی نیست!");
   }
 }
 
