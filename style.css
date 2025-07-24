@@ -210,3 +210,11 @@ body.dark .popup {
 body.dark h1, h2, h3 {
   color: white;
 }
+
+body.dark ul {
+    color: white;
+}
+
+body.dark span {
+    color: white;
+}
