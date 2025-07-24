@@ -207,6 +207,6 @@ body.dark .popup {
   border-color: #009688;
 }
 
-h1, h2, h3 {
+body.dark h1, h2, h3 {
   color: white;
 }
