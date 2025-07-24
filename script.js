@@ -72,15 +72,28 @@ function deductCard(code) {
 }
 
 function changeStatus(code) {
-  const status = prompt("وضعیت جدید را وارد کنید (Active/Inactive):");
-  if (status === "Active" || status === "Inactive") {
-    cards[code].status = status;
-    saveData();
-    showPopup("🔄 وضعیت تغییر کرد", `کارت ${code} اکنون ${status} است.`);
-  } else {
-    showPopup("❌ خطا", "وضعیت نامعتبر است!");
-  }
+  const current = cards[code].status;
+  const popup = document.getElementById("popup");
+  popup.innerHTML = `
+    <h3>تغییر وضعیت کارت ${code}</h3>
+    <p>وضعیت فعلی: <strong>${current}</strong></p>
+    <select id="statusSelect">
+      <option value="Active">فعال</option>
+      <option value="Inactive">غیرفعال</option>
+    </select>
+    <br><br>
+    <button onclick="applyStatus('${code}')">تأیید</button>
+  `;
+  popup.classList.remove("hidden");
 }
+
+function applyStatus(code) {
+  const newStatus = document.getElementById("statusSelect").value;
+  cards[code].status = newStatus;
+  saveData();
+  showPopup("✅ وضعیت تغییر کرد", `کارت ${code} اکنون ${newStatus} است.`);
+}
+
 
 function showTransactions(code) {
   const tx = cards[code].transactions;
