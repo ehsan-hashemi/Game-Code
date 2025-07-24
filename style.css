@@ -1,56 +1,93 @@
 @font-face {
-    font-family: "Vazir";
-    src: url("https://sgtmarket.ir/Vazir-Regular.ttf");
+  font-family: "Vazir";
+  src: url("https://sgtmarket.ir/Vazir-Regular.ttf");
 }
 
 body {
-  font-family: "Vazir";
-  background-color: #f9f9f9;
+  font-family: "Vazir", sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
   text-align: center;
   direction: rtl;
+  margin: 0;
+  padding: 0;
 }
 
 nav {
-  background-color: #eee;
-  padding: 10px;
-  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav a {
-  margin: 0 10px;
+  margin: 0 15px;
   text-decoration: none;
-  color: #333;
+  color: #007b5e;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #004d3a;
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
+  max-width: 700px;
+  margin: 40px auto;
   padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+h1, h2, h3 {
+  color: #222;
+  margin-bottom: 20px;
 }
 
 .input-group {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 input, select {
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #007b5e;
+  outline: none;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 16px;
-  background-color: green;
+  background-color: #007b5e;
   color: white;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
-  background-color: darkgreen;
+  background-color: #005f47;
+  transform: scale(1.03);
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 .hidden {
@@ -58,17 +95,38 @@ button:hover {
 }
 
 .popup {
-  background-color: white;
-  border: 2px solid #333;
+  background-color: #fff;
+  border: 2px solid #007b5e;
   padding: 20px;
   margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 ul {
   list-style: none;
   padding: 0;
+  margin-top: 20px;
 }
 
 li {
+  background-color: #f8f8f8;
   margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  background-color: #e74c3c;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+li button:hover {
+  background-color: #c0392b;
 }
