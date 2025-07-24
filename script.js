@@ -205,6 +205,102 @@ function clearGames() {
   }
 }
 
+// 🌙 تغییر حالت تاریک/روشن
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+}
+
+// 🕒 بارگذاری حالت ذخیره‌شده از قبل
+window.addEventListener("DOMContentLoaded", () => {
+  const savedMode = localStorage.getItem("darkMode");
+  if (savedMode === "true") {
+    document.body.classList.add("dark");
+  }
+
+  // اگر فرم تراکنش وجود دارد، هندلرها را وصل کن
+  const transactionForm = document.getElementById("transaction-form");
+  if (transactionForm) {
+    transactionForm.addEventListener("submit", handleTransaction);
+  }
+
+  // اگر فرم کارت وجود دارد
+  const cardForm = document.getElementById("card-form");
+  if (cardForm) {
+    cardForm.addEventListener("submit", handleCardAdd);
+  }
+
+  // اگر فرم بازی وجود دارد
+  const gameForm = document.getElementById("game-form");
+  if (gameForm) {
+    gameForm.addEventListener("submit", handleGameAdd);
+  }
+});
+
+// 💳 هندل تراکنش
+function handleTransaction(event) {
+  event.preventDefault();
+
+  const fromCard = document.getElementById("from-card").value;
+  const toCard = document.getElementById("to-card").value;
+  const amount = document.getElementById("amount").value;
+
+  if (!fromCard || !toCard || !amount) {
+    alert("لطفاً همه‌ی فیلدها را پر کنید.");
+    return;
+  }
+
+  const timestamp = new Date().toLocaleString("fa-IR");
+  const message = `تراکنش از ${fromCard} به ${toCard} به مبلغ ${amount} تومان در ${timestamp} ثبت شد.`;
+
+  showPopup(message);
+}
+
+// ➕ هندل افزودن کارت
+function handleCardAdd(event) {
+  event.preventDefault();
+
+  const cardName = document.getElementById("card-name").value;
+  if (!cardName) {
+    alert("نام کارت را وارد کنید.");
+    return;
+  }
+
+  const timestamp = new Date().toLocaleString("fa-IR");
+  const message = `کارت "${cardName}" در ${timestamp} اضافه شد.`;
+
+  showPopup(message);
+}
+
+// 🎮 هندل افزودن بازی
+function handleGameAdd(event) {
+  event.preventDefault();
+
+  const gameName = document.getElementById("game-name").value;
+  if (!gameName) {
+    alert("نام بازی را وارد کنید.");
+    return;
+  }
+
+  const timestamp = new Date().toLocaleString("fa-IR");
+  const message = `بازی "${gameName}" در ${timestamp} اضافه شد.`;
+
+  showPopup(message);
+}
+
+// 🔔 نمایش پیام در پاپ‌آپ
+function showPopup(message) {
+  const popup = document.getElementById("popup");
+  if (!popup) return;
+
+  popup.textContent = message;
+  popup.classList.remove("hidden");
+
+  setTimeout(() => {
+    popup.classList.add("hidden");
+  }, 4000);
+}
+
 // ------------------ بارگذاری خودکار ------------------
 
 window.addEventListener("DOMContentLoaded", () => {
