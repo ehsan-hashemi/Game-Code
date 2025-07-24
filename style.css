@@ -161,7 +161,7 @@ li button:hover {
 }
 
 /* 🌙 حالت تاریک */
-body.dark {
+/*body.dark {
   background-color: #1e1e1e;
   color: #eee;
 }
@@ -217,4 +217,4 @@ body.dark ul {
 
 body.dark span {
     color: black;
-}
+} */
