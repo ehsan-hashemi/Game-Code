@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Code - صفحه اصلی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">صفحه اصلی</a> |
+    <a href="manage-cards.html">مدیریت کارت‌ها</a> |
+    <a href="manage-games.html">مدیریت بازی‌ها</a>
+  </nav>
+
+  <div class="container">
+    <h1>Game Code - گروه برنامه‌نویسی M</h1>
+    <div class="input-group">
+      <input type="text" id="cardCode" placeholder="کد کارت را وارد کنید">
+      <button onclick="processCode()">ورود</button>
+    </div>
+    <div id="menu" class="hidden"></div>
+    <div id="popup" class="popup hidden"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

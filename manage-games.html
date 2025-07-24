@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>مدیریت بازی‌ها</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">صفحه اصلی</a> |
+    <a href="manage-cards.html">مدیریت کارت‌ها</a> |
+    <a href="manage-games.html">مدیریت بازی‌ها</a>
+  </nav>
+
+  <div class="container">
+    <h2>افزودن بازی جدید</h2>
+    <input type="text" id="newGameName" placeholder="نام بازی">
+    <input type="number" id="newGamePrice" placeholder="قیمت">
+    <button onclick="addGame()">افزودن</button>
+
+    <h2>بازی‌های موجود</h2>
+    <ul id="gameList"></ul>
+
+    <button onclick="clearGames()">🗑 حذف همه بازی‌ها</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
